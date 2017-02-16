@@ -2,10 +2,43 @@
   jobs works!
 </p>
 <button (click)=getJobs()>Get Jobs</button>
+<h1>Add Posts</h1>
 <form (ngSubmit)="onSubmit(form.value)">
   <label>Name</label>
   <input type="text" name="Name" [(ngModel)]="form.name">
   <label>Summary</label>
   <input type="text" name="summary" [(ngModel)]="form.summary">
   <button type='submit'>Post</button>
+</form>
+
+<h1> Find Job</h1>
+<form (ngSubmit)="getTask()">
+  <input type="text" name="jobId" [(ngModel)]="jobsId">
+  <button type='submit'>Get Job</button>
+</form>
+
+<h1> Update Job</h1>
+<form (ngSubmit)="updateTask()">
+  <label>Jobs Id</label>
+  <input type="text" name="updateJobId" [(ngModel)]="updateJobsId">
+  <label>summary</label>
+  <input type="text" name="updateSummary" [(ngModel)]= "updateForm.summary">
+  <label>Description</label>
+  <input type="text" name="updateDescription" [(ngModel)]= "updateForm.description">
+  <label>Status</label>
+  <input type="text" name="updateStatus" [(ngModel)]="updateForm.status">
+  <label>Start Date</label>
+  <input type="date" name="updateStartDate" [(ngModel)]= "updateForm.start_date">
+  <label>End Date</label>
+  <input type="date" name="updateEndDate" [(ngModel)]= "updateForm.end_date">
+  <button type='submit'>Update Job</button>
+</form>
+
+<h1>Assign Job</h1> 
+<form (ngSubmit)="assignJob()">
+  <label>Assignee</label>
+  <input type="text" name="AssigneeName" [(ngModel)]="assignee_id">
+  <label>Job</label>
+  <input type="text" name="AssignJob" [(ngModel)]="job_id">
+  <button type="submit">Assign Job</button>
 </form>

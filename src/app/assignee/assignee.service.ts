@@ -3,13 +3,14 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 @Injectable()
-export class JobsServiceService {
+export class AssigneeService {
 
   constructor(private http:Http) {}
-  
 
-  getJobs(): Observable<any> {
-    return this.http.get('http://interview.lenderprice.com:7070/api/jobs')
+  public assigneeSearch = "";
+
+  getAssignees(): Observable<any> {
+    return this.http.get('http://interview.lenderprice.com:7070/api/assignee')
       .map((response: Response) => {
         return response.json()
       })
@@ -18,8 +19,8 @@ export class JobsServiceService {
       })
    }
 
-   postJobs(form): Observable<any> {
-     return this.http.post('http://interview.lenderprice.com:7070/api/jobs',form)
+   postAssignee(assignee): Observable<any> {
+     return this.http.post('http://interview.lenderprice.com:7070/api/assignee',assignee)
       .map((response: Response)=>{
         return response.json()
       })
@@ -28,8 +29,8 @@ export class JobsServiceService {
       })
    }
 
-   getJob(id): Observable<any> {
-    return this.http.get(`http://interview.lenderprice.com:7070/api/jobs/${id}`)
+   getAssignee(id): Observable<any> {
+    return this.http.get(`http://interview.lenderprice.com:7070/api/assignee/${id}`)
       .map((response: Response) => {
         return response.json()
       })
@@ -40,8 +41,8 @@ export class JobsServiceService {
    
    
    //This should be a Put Request
-    updateJob(id,updatedForm): Observable<any> {
-     return this.http.post(`http://interview.lenderprice.com:7070/api/jobs/${id}`,updatedForm)
+    updateAssigne(id,updatedAssignee): Observable<any> {
+     return this.http.post(`http://interview.lenderprice.com:7070/api/assigne/${id}`,updatedAssignee)
       .map((response: Response)=>{
         return response.json()
       })
@@ -49,16 +50,5 @@ export class JobsServiceService {
         return Observable.throw(err.json() || 'Server error')
       })
    }
-
-   assignJobs(assigneeId,jobId): Observable<any> {
-     return this.http.post(`http://interview.lenderprice.com:7070/api/assignjob?assignee_id=${assigneeId}&job_id=${jobId}`,{})
-      .map((response: Response)=>{
-        return response.json()
-      })
-      .catch((err: Response)=>{
-        return Observable.throw(err.json()|| 'Server Error')
-      })
-   }
-
 
 }

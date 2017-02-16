@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AssigneeComponent } from './assignee/assignee.component';
 import { JobsServiceService } from './jobs/jobs-service.service';
+import { AssigneeService } from './assignee/assignee.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -21,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [JobsServiceService],
+  providers: [JobsServiceService,AssigneeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
