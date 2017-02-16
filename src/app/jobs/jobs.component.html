@@ -1,0 +1,11 @@
+<p>
+  jobs works!
+</p>
+<button (click)=getJobs()>Get Jobs</button>
+<form (ngSubmit)="onSubmit(form.value)">
+  <label>Name</label>
+  <input type="text" name="Name" [(ngModel)]="form.name">
+  <label>Summary</label>
+  <input type="text" name="summary" [(ngModel)]="form.summary">
+  <button type='submit'>Post</button>
+</form>
