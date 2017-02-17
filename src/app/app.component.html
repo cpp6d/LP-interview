@@ -1,5 +1,18 @@
-<h1>
-  {{title}}
-</h1>
-<app-jobs></app-jobs>
-<app-assignee></app-assignee>
+<div class="navbar">
+   <div class="container">
+      <div class="logo">
+          <img src="http://lenderprice.com/wp-content/uploads/2016/09/Lender-Price-Logo2.png">
+      </div>
+      <div class="links">
+        <ul>
+          <nav class="navbarOptions">
+            <li routerLink="/jobs" routerLinkActive="active"><a>Jobs</a></li>
+            <li routerLink="/assignee" routerLinkActive="active"><a>Assignee</a></li>
+          </nav>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+   </div>
+</div>
+
+<router-outlet></router-outlet>

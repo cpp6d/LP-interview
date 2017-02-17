@@ -1,23 +1,45 @@
-<p>
-  assignee works!
-</p>
-<button (click)=getAssignees()>Get Assignee</button>
+<ul class="nav">
+  <li><a (click)="changeState('default')" id="default">All Assignees</a></li>
+  <li><a (click)="changeState('addAssignee') " id="addAssignee">Add Assignee</a></li>
+  <li><a (click)="changeState('findAssignee')" id="findAssignee">Find Assignee</a></li>
+</ul>
 
-<h1>Add Posts</h1>
-<form (ngSubmit)="assigneeSubmit()">
-  <label>Name</label>
-  <input type="text" name="assigneeName" [(ngModel)]="assignee.name">
-  <button type='submit'>Post</button>
-</form>
+<div class='assigneeForms' [ngSwitch]="value">
+        <div *ngSwitchDefault>
+          <div class='assigneeBox' *ngFor="let item of allAssignee">      
+            Name: {{item.name}}
+            <br>
+            Name Id: {{item._id}}
+          </div>  
+        </div>
+        <div *ngSwitchCase="'addAssignee'">
+          <div class="formWrapper">
+            <h1>Add Assignee</h1>
+              <form (ngSubmit)="assigneeSubmit()">
+                <label>Name</label>
+                <input type="text" name="assigneeName" [(ngModel)]="assignee.name">
+                <button type='submit'>Post</button>
+              </form>
+          </div>
+        </div>
+        <div *ngSwitchCase="'findAssignee'">
+          <h1 style="color:white"> Find Assignee</h1>
+          <form (ngSubmit)="getAssignee()">
+            <input class="search" type="text" name="jobId" #assigneeSearch (keyup)='o'>
+              <div *ngFor="let filtered of allAssignee|assignee:assigneeSearch.value">
+                <div class="assigneeBox">
+                Name: {{filtered.name}}
+                <br>
+                Name Id: {{filtered._id}}
+                <br>
+                Active Jobs: {{filtered.jobs.length}}
+                </div>
+              </div>
+            <button type='submit'>Get Assignee</button>
+          </form>
+        </div>
+    </div>
 
-
-<h1> Find Assignee</h1>
-<form (ngSubmit)="getAssignee()">
-  <input type="text" name="jobId" [(ngModel)]="assigneeSearch">
-  <button type='submit'>Get Job</button>
-</form>
-
-<h1></h1>
 
 
 <!--

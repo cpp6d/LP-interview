@@ -1,0 +1,73 @@
+.nav {
+    display: block;
+    font: 13px Helvetica, Tahoma, serif;
+    text-transform: uppercase;
+    margin: 0; 
+    padding: 0;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+.nav li {
+    display: inline-block;
+    list-style: none;
+}
+
+.nav li a {
+    display: block;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.nav li a.active{
+    display: block;
+    color: white;
+    background-color: grey;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+.nav li a:hover{
+    display: block;
+    color: white;
+    background-color: grey;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.assignee{
+    padding: 10px;
+}
+
+.assigneeForms{
+    text-align: center;
+    position: static;
+}
+
+.formWrapper{
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
+
+.formWrapper h1{
+   color: rgba(0,0,0,.6);
+   padding-top: 25px;
+}
+
+.assigneeBox{
+    padding: 10px;
+    margin: 10px auto;
+    width: 500px;
+    background-color: white;
+    color: rgba(0,0,0,.6);
+}
+
+.search{
+  border-radius: 10px;
+  height: 30px;
+  width: 300px;
+  border: none;
+  background: rgb(250, 250, 250);
+}
