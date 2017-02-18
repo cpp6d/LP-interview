@@ -8,7 +8,7 @@
 
 <div class="jobsForm" [ngSwitch]="value">
         <div *ngSwitchDefault>
-          <div class='jobBox' *ngFor="let item of allJobs">      
+          <div (click)="clickOnJob(item)" class='jobBox' *ngFor="let item of allJobs">      
             Summary: {{item.summary}}
             <br>
             Description: {{item.description}}
@@ -22,6 +22,7 @@
             <label>Name</label>
             <input type="text" name="Name" [(ngModel)]="form.name">
             <br>
+            <br>
             <label>Summary</label>
             <input type="text" name="summary" [(ngModel)]="form.summary">
             <br>
@@ -31,9 +32,11 @@
         <div *ngSwitchCase="'findJob'">
           <h1 style="color:white"> Find Job</h1>
           <form (ngSubmit)="getTask()">
-            <input class='search' type="text" name="jobId" #jobsId (keyup)='o'>
+            <input placeholder="Search by JobId or Summary" class='search' type="text" name="jobId" #jobsId (keyup)='o'>
+            <br>
+            <span style="color:white; margin-top: 10px;">Click to Update</span>
             <div *ngFor="let filtered of allJobs|jobsPipe:jobsId.value">
-                <div class="jobBox">
+                <div (click)="clickOnJob(filtered)" class="jobBox">
                 Summary: {{filtered.summary}}
                 <br>
                 Job Id: {{filtered._id}}
@@ -43,26 +46,32 @@
             <button type='submit'>Get Job</button>
           </form>
         </div>
-        <div class="formWrapper" *ngSwitchCase="'updateJob'">
+        <div class="formWrapper update" *ngSwitchCase="'updateJob'">
           <h1> Update Job</h1>
           <form (ngSubmit)="updateTask()">
             <label>Jobs Id</label>
-            <input type="text" name="updateJobId" [(ngModel)]="updateJobsId">
+            <input type="text" name="updateJobId" [(ngModel)]="updateForm._id">
+            <br>
             <br>
             <label>Summary</label>
             <input type="text" name="updateSummary" [(ngModel)]= "updateForm.summary">
             <br>
+            <br>
             <label>Description</label>
             <input type="text" name="updateDescription" [(ngModel)]= "updateForm.description">
+            <br>
             <br>
             <label>Status</label>
             <input type="text" name="updateStatus" [(ngModel)]="updateForm.status">
             <br>
+            <br>
             <label>Start Date</label>
             <input type="date" name="updateStartDate" [(ngModel)]= "updateForm.start_date">
             <br>
+            <br>
             <label>End Date</label>
             <input type="date" name="updateEndDate" [(ngModel)]= "updateForm.end_date">
+            <br>
             <br>
             <button type='submit'>Update Job</button>
           </form>
@@ -72,6 +81,7 @@
           <form (ngSubmit)="assignJob()">
             <label>Assignee</label>
             <input type="text" name="AssigneeName" [(ngModel)]="assignee_id">
+            <br>
             <br>
             <label>Job</label>
             <input type="text" name="AssignJob" [(ngModel)]="job_id">

@@ -6,13 +6,6 @@
     margin: 0;
     padding: 0;
  }
-
- 
- /*ul,
- ol {
-    list-style: none;
- }
- */
  a {
     text-decoration: none;
  }
@@ -29,37 +22,13 @@
     width: 95%;
     margin: 0 auto;
  }
- /* Start Toggle */
- 
- /*.toggle {
-    width: 30px;
-    padding: 10px;
-    float: right;
-    color: rgba(0,0,0,.6);
-    border-radius: 10px;
-    margin: 6px;
-    cursor: pointer;
-    display: none;
- }*/
- 
- .toggle span {
-    width: 100%;
-    height: 4px;
-    background-color: #fff;
-    display: block;
-    margin-bottom: 3px;
- }
- /* End Toggle */
- /* Start Logo */
  
  .navbar .container .logo {
     width: 15%;
     float: left;
     padding-top: 8px
  }
- /* End Logo */
- /* Start Links */
- 
+
  .navbar .container .links {
     width: 85%;
     float: left;
@@ -71,19 +40,28 @@
  
  .navbar .container .links ul li {
     display: inline-block;
-    padding: 15px;
+    padding: 20px;
  }
- .navbar .container .links ul li a {
+ .navbar .container .links ul li{
     color: rgba(0,0,0,.6);
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
  }
-  .navbar .container .links ul li a:hover {
-    color: rgba(0,0,0,.6);
+  .navbar .container .links ul li:hover {
+    color: white;
+    background-color: rgba(0,0,0,.6);
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
  }
+
+ .navbar .container .links ul li.active{
+    color: white;
+    background-color: rgba(0,0,0,.6);
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+ }
+
  .logo img{
      height: 50px;
      width: 75px;

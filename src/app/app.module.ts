@@ -16,6 +16,7 @@ import { JobsPipePipe } from './jobs/jobs-pipe.pipe';
 const appRoutes: Routes = [
   {path: 'assignee', component: AssigneeComponent },
   {path: 'jobs' , component: JobsComponent},
+  {path: '**', redirectTo: '/jobs'}
 ]
 
 @NgModule({

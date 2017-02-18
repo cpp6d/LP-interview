@@ -54,6 +54,15 @@
     text-align: center;
     color: rgba(0,0,0,.6)
 }
+
+.formWrapper.update{
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    color: rgba(0,0,0,.6)
+}
 .formWrapper h1{
    color: rgba(0,0,0,.6);
    padding-top: 25px;
@@ -72,4 +81,5 @@
   width: 300px;
   border: none;
   background: rgb(250, 250, 250);
+  margin-bottom: 10px;
 }

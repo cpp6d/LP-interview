@@ -18,6 +18,7 @@
               <form (ngSubmit)="assigneeSubmit()">
                 <label>Name</label>
                 <input type="text" name="assigneeName" [(ngModel)]="assignee.name">
+                <br>
                 <button type='submit'>Post</button>
               </form>
           </div>
@@ -25,9 +26,9 @@
         <div *ngSwitchCase="'findAssignee'">
           <h1 style="color:white"> Find Assignee</h1>
           <form (ngSubmit)="getAssignee()">
-            <input class="search" type="text" name="jobId" #assigneeSearch (keyup)='o'>
+            <input class="search" type="text" placeholder="Search JobId or Name"name="jobId" #assigneeSearch (keyup)='o'>
               <div *ngFor="let filtered of allAssignee|assignee:assigneeSearch.value">
-                <div class="assigneeBox">
+                <div class="assigneeBox" id="{{filtered.id}}">
                 Name: {{filtered.name}}
                 <br>
                 Name Id: {{filtered._id}}
@@ -35,27 +36,6 @@
                 Active Jobs: {{filtered.jobs.length}}
                 </div>
               </div>
-            <button type='submit'>Get Assignee</button>
           </form>
         </div>
     </div>
-
-
-
-<!--
-<h1> Update Assigne</h1>
-<form (ngSubmit)="updateTask()">
-  <label>Jobs Id</label>
-  <input type="text" name="updateJobId" [(ngModel)]="updateJobsId">
-  <label>summary</label>
-  <input type="text" name="updateSummary" [(ngModel)]= "updateForm.summary">
-  <label>Description</label>
-  <input type="text" name="updateDescription" [(ngModel)]= "updateForm.description">
-  <label>Status</label>
-  <input type="text" name="updateStatus" [(ngModel)]="updateForm.status">
-  <label>Start Date</label>
-  <input type="date" name="updateStartDate" [(ngModel)]= "updateForm.start_date">
-  <label>End Date</label>
-  <input type="date" name="updateEndDate" [(ngModel)]= "updateForm.end_date">
-  <button type='submit'>Update Job</button>
-</form>-->
